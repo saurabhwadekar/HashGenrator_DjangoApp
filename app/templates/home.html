@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+{% load static %}
+<div class="container">
+
+
+<nav class="navbar navbar-dark bg-dark shadow fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="{% static 'img/logo/logo.png' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      Hash Genrator
+    </a>
+  </div>
+</nav>
+
+<form action="{% url 'home' %}" method="post">
+{% csrf_token %}
+<div class="mb-3">
+  <label class="form-label">Inter Your String</label>
+  {{gsf.hash_str}}
+</div>
+<div class="d-grid gap-2">
+  <button class="btn btn-primary" type="submit">Encript</button>
+</div>
+
+</form>
+
+{% if data %}
+
+<div class="mb-3">
+<label class="form-label">MD5</label>
+<input class="form-control" type="text" value="{{data.md5}}" aria-label="Disabled input example" disabled readonly>
+</div>
+
+<div class="mb-3">
+<label class="form-label">SHA1</label>
+<input class="form-control" type="text" value="{{data.sha1}}" aria-label="Disabled input example" disabled readonly>
+</div>
+
+<div class="mb-3">
+<label class="form-label">SHA224</label>
+<input class="form-control" type="text" value="{{data.sha224}}" aria-label="Disabled input example" disabled readonly>
+</div>
+
+<div class="mb-3">
+<label class="form-label">SHA256</label>
+<input class="form-control" type="text" value="{{data.sha256}}" aria-label="Disabled input example" disabled readonly>
+</div>
+
+<div class="mb-3">
+<label class="form-label">SHA384</label>
+<input class="form-control" type="text" value="{{data.sha384}}" aria-label="Disabled input example" disabled readonly>
+</div>
+
+<div class="mb-3">
+<label class="form-label">SHA512</label>
+<input class="form-control" type="text" value="{{data.sha512}}" aria-label="Disabled input example" disabled readonly>
+</div>
+
+<div class="mb-3">
+<label class="form-label">BLAKE2B</label>
+<input class="form-control" type="text" value="{{data.blake2b}}" aria-label="Disabled input example" disabled readonly>
+</div>
+
+<div class="mb-3">
+<label class="form-label">BLAKE2S</label>
+<input class="form-control" type="text" value="{{data.blake2s}}" aria-label="Disabled input example" disabled readonly>
+</div>
+
+
+
+{% endif %}
+
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
